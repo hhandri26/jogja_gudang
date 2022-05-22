@@ -24,6 +24,7 @@ var app1 = new Vue({
             this.amount_shipping = 0;
             this.total_berat = 0;
             this.amount = 0;
+            this.cetak = '';
             axios.get('transaction/header_detail/' + id, optionAxiosPublic)
                 .then(res => {
                     this.header.no_resi = res.data.values[0].no_resi;                    
