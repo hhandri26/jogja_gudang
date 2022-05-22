@@ -15,7 +15,8 @@ var app1 = new Vue({
             amount: '',
             bukti_transfer: '',
         },
-        cetak:''
+        cetak:'',
+        role:localStorage.role
     },
     methods: {
         detail_vue: function (id) {
@@ -113,7 +114,7 @@ var app1 = new Vue({
                                 user.date,
                                 user.time,
                                 user.username,
-                                '<button class="btn btn-info" onclick="detail(' + user.id + ')"> Detail </button> <a href="#" class="btn btn-danger"> Hapus </a>'
+                                '<button href="#" class="btn btn-info" data-toggle="modal" data-target="#tesModal" onclick="detail(' + user.id + ')"> Detail </button> <a href="#" class="btn btn-danger"> Hapus </a>'
                             ]).draw(false)
                         })
                     })
@@ -210,7 +211,7 @@ var app1 = new Vue({
                             user.date,
                             user.time,
                             user.username,
-                            '<button href="#" class="btn btn-info" data-toggle="modal" data-target="#tesModal" onclick="detail(' + user.id + ')"> Detail </button> <a href="#" class="btn btn-danger"> Hapus </a>'
+                            '<button class="btn btn-info" data-toggle="modal" data-target="#tesModal" onclick="detail(' + user.id + ')"> Detail </button> <a href="#" class="btn btn-danger"> Hapus </a>'
                         ]).draw(false)
                     })
                 })

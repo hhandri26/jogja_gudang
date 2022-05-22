@@ -19,7 +19,7 @@ var app = new Vue({
         if (role == '1') {
             axios.get('countnew/' + 0,optionAxiosPublic).then(function (resp) {
 
-                    this.transaksi_new = resp.data.values[0].qty;
+                    app.transaksi_new = resp.data.values[0].qty;
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -28,7 +28,7 @@ var app = new Vue({
                 axios.get('countprosess/' + 0, optionAxiosPublic).then(function (resp) {
 
 
-                    this.transaksi_prosess = resp.data.values[0].qty;
+                    app.transaksi_prosess = resp.data.values[0].qty;
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -37,7 +37,7 @@ var app = new Vue({
                 axios.get('countpacking/' + 0, optionAxiosPublic).then(function (resp) {
 
 
-                    this.transaksi_packing = resp.data.values[0].qty;
+                    app.transaksi_packing = resp.data.values[0].qty;
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -46,7 +46,7 @@ var app = new Vue({
                 axios.get('countsend/' + 0, optionAxiosPublic).then(function (resp) {
 
 
-                    this.transaksi_send = resp.data.values[0].qty;
+                    app.transaksi_send = resp.data.values[0].qty;
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -56,7 +56,7 @@ var app = new Vue({
             axios.get('countnew/' + no, optionAxiosPublic).then(function (resp) {
 
 
-                this.transaksi_new = resp.data.values[0].qty;
+                app.transaksi_new = resp.data.values[0].qty;
             })
             .catch(function (err) {
                 console.log(err);
@@ -65,7 +65,7 @@ var app = new Vue({
             axios.get('countprosess/' + no, optionAxiosPublic).then(function (resp) {
 
 
-                this.transaksi_prosess = resp.data.values[0].qty;
+                app.transaksi_prosess = resp.data.values[0].qty;
             })
             .catch(function (err) {
                 console.log(err);
@@ -74,7 +74,7 @@ var app = new Vue({
             axios.get('countpacking/' + no, optionAxiosPublic).then(function (resp) {
 
 
-                this.transaksi_packing = resp.data.values[0].qty;
+                app.transaksi_packing = resp.data.values[0].qty;
             })
             .catch(function (err) {
                 console.log(err);
@@ -83,7 +83,7 @@ var app = new Vue({
             axios.get('countsend/' + no, optionAxiosPublic).then(function (resp) {
 
 
-                this.transaksi_send = resp.data.values[0].qty;
+                app.transaksi_send = resp.data.values[0].qty;
             })
             .catch(function (err) {
                 console.log(err);

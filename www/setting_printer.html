@@ -1,92 +1,238 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Home</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- VENDOR CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/printer.css">
-    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Breeze Admin</title>
+    <link rel="stylesheet" href="assets/tm/vendors/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="assets/tm/vendors/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="assets/tm/vendors/css/vendor.bundle.base.css" />
+    <link rel="stylesheet" href="assets/tm/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/tm/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="assets/tm/css/style.css" />
+    <link rel="shortcut icon" href="assets/tm/images/favicon.png" />
     <link rel="stylesheet" href="plugin/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="plugin/DataTables/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" href="plugin/DataTables/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="assets/css/printer.css">
 </head>
 
 <body>
-    <div class="navbar navbar-default navbar-inverse" role="navigation">
-        <div class="navbar-header">
+    <div class="container-scroller">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
 
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+            <ul class="nav">
+                <li class="nav-item nav-profile">
+                    <a href="dashboard.html" class="nav-link">
+                        <div class="nav-profile-image" style="margin: auto;">
+                            <img src="img/logo.png" alt="profile" />
+                            <span class="login-status online"></span>
+                            <!--change to offline or busy as needed-->
+                        </div>
 
 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="mdi mdi-home menu-icon"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false"
+                        aria-controls="ui-basic">
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                        <span class="menu-title">Transaksi</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic1">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="transaksi_new.html">Transaksi Baru</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="transaksi_prosess.html">Transkasi Prosess</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="transaksi_packing.html">Transkasi Di Packing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="transaksi_send.html">Transkasi Dikirm</a>
+                            </li>
 
-        </div>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false"
+                        aria-controls="ui-basic2">
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                        <span class="menu-title">Barang</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic2">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="product_category.html">Kategori Barang</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product_master.html">Master barang</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product_gallery.html">Galeri Barang</a>
+                            </li>
 
-        <div class="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="dashboard.html" class="active">Dashboard</a></li>
-                <li><a href="transaksi_new.html">Transaksi Baru</a></li>
-                <li><a href="transaksi_prosess.html">Transkasi Prosess</a></li>
-                <li><a href="transaksi_packing.html">Transkasi Packing</a></li>
-                <li><a href="transaksi_send.html">Transkasi Terkirim</a></li>
-                <li><a href="product_category.html">Kategori Barang</a></li>
-                <li><a href="product_master.html">Master Barang</a></li>
-                <li><a href="product_gallery.html">Galeri Barang</a></li>
-                <li><a href="product_stock.html">Input Stok Barang</a></li>
-                <li><a href="product_stock_adj.html">Penyesuaian Stok Barang</a></li>
-                <li><a href="product_report_stock.html">Report Stok Barang</a></li>
-                <li><a href="kwitansi.html">Input Kwitansi</a></li>
-                <li><a href="kwitansi_mix.html">Kelolah Mix Barang</a></li>
-                <li><a href="setting_printer.html">Setting Printer</a></li>
-                <li><a href="user.html">User</a></li>
-                <li><a href="#" onclick='logout()'>Log out</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false"
+                        aria-controls="ui-basic3">
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                        <span class="menu-title">Gudang</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic3">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="product_stock.html">Input Stok Barang</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product_stock_adj.html">Penyesuaian Stok barang</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product_report_stock.html">Report Stok Barang</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="kwitansi.html">Input Kwitansi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="kwitansi_mix.html">Kelolah Mix Barang</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="setting_printer.html">
+                        <i class="mdi mdi-contacts menu-icon"></i>
+                        <span class="menu-title">Setting Printer </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="setting_printer.html">
+                        <i class="mdi mdi-contacts menu-icon"></i>
+                        <span class="menu-title">Kelola User </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick='logout()'>
+                        <i class="mdi mdi-contacts menu-icon"></i>
+                        <span class="menu-title">Log out </span>
+                    </a>
+                </li>
+
+
             </ul>
+        </nav>
+        <div class="container-fluid page-body-wrapper">
+
+            <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row"
+                style="background-color: #fff !important;">
+                <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between"
+                    style="background-color: #fff !important;">
+
+                    <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button"
+                        data-toggle="minimize">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+
+
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                        data-toggle="offcanvas">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                </div>
+            </nav>
+            <div class="main-panel">
+                <div class="content-wrapper pb-0">
+
+                    <div class="row" id="app1">
+                        <div class="container">
+                            <h1 class="text-center">Setting Printer</h1>
+                            <fieldset>
+                                <legend>Select Printer</legend>
+                                <select size="1" id="btpPrinter" disabled="disabled"></select>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Status</legend>
+                                <label id="status"></label>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Methods</legend>
+                                <button type="button" id="btnStatus">status</button>
+                                <button type="button" id="btnList">list</button>
+                                <button type="button" id="btnConnect">connect</button>
+                                <button type="button" id="btnConnected">connected</button>
+                                <button type="button" id="btnDisconnect">disconnect</button>
+
+                            </fieldset>
+                            <fieldset>
+                                <legend>Print Text</legend>
+                                <textarea rows="3" cols="10" id="txtSample">» Dian Mandiri Grup Test prominent
+                                     » ©2022 Handri</textarea>
+                                <button type="button" id="btnPrintText">printText</button>
+                                <button type="button" id="btnPrintTextSizeAlign">printTextSizeAlign</button>
+                                <button type="button" id="btnPrintTitle">printTitle</button>
+                            </fieldset>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+
+                    </div>
+                </footer>
+            </div>
+            <!-- main-panel ends -->
         </div>
-
+        <!-- page-body-wrapper ends -->
     </div>
-
-    
-    <div class="container" >
-        <h1 class="text-center">Setting Printer</h1>
-		<fieldset>
-			<legend>Select Printer</legend>
-			<select size="1" id="btpPrinter" disabled="disabled"></select>
-		</fieldset>
-
-		<fieldset>
-			<legend>Status</legend>
-			<label id="status"></label>
-		</fieldset>
-        <fieldset>
-			<legend>Methods</legend>
-			<button type="button" id="btnStatus">status</button>
-			<button type="button" id="btnList">list</button>
-			<button type="button" id="btnConnect">connect</button>
-			<button type="button" id="btnConnected">connected</button>
-			<button type="button" id="btnDisconnect">disconnect</button>
-			
-		</fieldset>
-        <fieldset>
-			<legend>Print Text</legend>
-			<textarea rows="3" cols="10" id="txtSample">» Dian Mandiri Grup Test prominent
-                 » ©2022 Handri</textarea>
-			<button type="button" id="btnPrintText">printText</button>
-			<button type="button" id="btnPrintTextSizeAlign">printTextSizeAlign</button>
-			<button type="button" id="btnPrintTitle">printTitle</button>
-		</fieldset>
-      
-
-    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
     <script type="text/javascript" src="cordova.js"></script>
-    <script src="assets/js/jquery-2.1.4.min.js"></script>
+    <script src="assets/tm/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/tm/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/tm/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.resize.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.categories.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.fillbetween.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.stack.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.pie.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/tm/js/off-canvas.js"></script>
+    <script src="assets/tm/js/hoverable-collapse.js"></script>
+    <script src="assets/tm/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
     <script src="plugin/DataTables/datatables.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="plugin/DataTables/dataTables.rowReorder.min.js"></script>
+    <script src="plugin/DataTables/dataTables.responsive.min.js"></script>
     <script src="assets/js/globalscript.js"></script>
     <script type="text/javascript" src="assets/js/variable.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
@@ -95,8 +241,7 @@
     <script src="assets/js/vue-filter.js"></script>
     <script src="assets/js/logout.js"></script>
     <script src="assets/js/printer.js"></script>
-    
-
+    <!-- End custom js for this page -->
 </body>
 
 </html>
