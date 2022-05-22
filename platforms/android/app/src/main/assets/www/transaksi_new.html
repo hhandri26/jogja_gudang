@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="plugin/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="plugin/DataTables/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" href="plugin/DataTables/responsive.dataTables.min.css">
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-inverse" role="navigation">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+
+
+        </div>
+
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="transaksi_new.html">Transaksi Baru</a></li>
+                <li><a href="transaksi_prosess.html">Transkasi Prosess</a></li>
+                <li><a href="transaksi_packing.html">Transkasi Packing</a></li>
+                <li><a href="transaksi_send.html">Transkasi Terkirim</a></li>
+                <li><a href="product_category.html">Kategori Barang</a></li>
+                <li><a href="product_master.html">Master Barang</a></li>
+                <li><a href="product_gallery.html">Galeri Barang</a></li>
+                <li><a href="product_stock.html">Input Stok Barang</a></li>
+                <li><a href="product_stock_adj.html">Penyesuaian Stok Barang</a></li>
+                <li><a href="product_report_stock.html">Report Stok Barang</a></li>
+                <li><a href="kwitansi.html">Input Kwitansi</a></li>
+                <li><a href="kwitansi_mix.html">Kelolah Mix Barang</a></li>
+                <li><a href="setting_printer.html">Setting Printer</a></li>
+                <li><a href="user.html">User</a></li>
+                <li><a href="#" onclick='logout()'>Log out</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+   
+    <div class="container" id="app1">
+        <!-- Modal -->
+        <div class="modal fade" id="tesModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="container">
+                        <!-- header-->
+                        <table class="table display nowrap responsive" style="width:auto !important;">
+
+                            <tbody>
+
+                                <tr>
+                                    <td style="font-size: 15px;width: 200px;">Nomor Resi Pengiriman</td>
+                                    <td style="font-size: 15px;width: 300px;">{{header.no_resi}}</td>
+
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 15px;width: 200px;">Alamat Pengiriman</td>
+                                    <td style="font-size: 15px;width: 300px;">{{ header.province_name }}
+                                        {{header.city_name}}
+                                        {{header.district_name }} {{ header.alamat_member}}</td>
+
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 15px;width: 200px;">Total Belanja</td>
+                                    <td style="font-size: 15px;width: 300px;">Rp. {{ header.total_all | thousand }}
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 15px;width: 200px;">Total Ongkos Kirim</td>
+                                    <td style="font-size: 15px;width: 300px;">Rp.
+                                        {{ header.amount_shipping | thousand }} </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 15px;width: 200px;">Sub Total Belanja</td>
+                                    <td style="font-size: 15px;width: 300px;">Rp.
+                                        {{ (Number(header.total_all) + Number(header.amount_shipping)) | thousand }}
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 15px;width: 200px;">Total Berat</td>
+                                    <td style="font-size: 15px;width: 300px;">{{header.total_berat}} Gram</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size: 15px;width: 200px;">Total Yang Dibayarkan</td>
+                                    <td style="font-size: 15px;width: 300px;">Rp.
+                                        {{ header.amount | thousand }} </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 15px;width: 200px;">Selisih</td>
+                                    <td style="font-size: 15px;width: 300px;">Rp.
+                                        {{ (Number(header.amount) - (Number(header.total_all) + Number(header.amount_shipping))) | thousand }}
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2">
+                                        <v-col cols="12">
+                                            <v-img :src="header.bukti_transfer" aspect-ratio="1" class="grey lighten-2"
+                                                width="300">
+
+                                            </v-img>
+                                        </v-col>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                        <table class="table display nowrap responsive"  style="width:auto !important;">
+                            <thead>
+                                <tr>
+                                    <th>Nama Produk</th>
+                                    <th>Qty</th>
+                                    <th>Harga</th>
+                                    <th>Sub Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(rows, i) in details">
+                                    <td>{{rows.product_nama}}</td>
+                                    <td>{{rows.qty}}</td>
+                                    <td>{{rows.harga | thousand}}</td>
+                                    <td>{{rows.sub_total | thousand}}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4">
+                                        <button type="button" class="btn btn-info" id="btnPrintTextVue">Cetak</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+                        <div v-html="cetak"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+
+
+            <div class="row">
+                <div class="col">
+                    <table id="table-data" class="table display nowrap responsive" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>No Transaksi</th>
+                                <th>Member</th>
+                                <th>Tanggal Transaksi</th>
+                                <th>Waktu</th>
+                                <th>Admin</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="assets/js/jquery-2.1.4.min.js"></script>
+    <script src="plugin/DataTables/datatables.min.js"></script>
+    <script src="plugin/DataTables/dataTables.rowReorder.min.js"></script>
+    <script src="plugin/DataTables/dataTables.responsive.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/globalscript.js"></script>
+    <script type="text/javascript" src="assets/js/variable.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/axios.min.js"></script>
+    <script src="assets/js/transaksi_new.js"></script>
+    <script src="assets/js/vue-filter.js"></script>
+    <script src="assets/js/logout.js"></script>
+    <script src="assets/js/printer.js"></script>
+</body>
+
+</html>
