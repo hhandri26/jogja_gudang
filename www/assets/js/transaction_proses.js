@@ -179,7 +179,7 @@ var app1 = new Vue({
                 },
                 responsive: true
             });
-            const url = 'https://api.dianmandirigrup.co.id/new_mobile/' + 0;
+            const url = 'https://api.dianmandirigrup.co.id/new_prosess/' + 0;
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
@@ -224,7 +224,7 @@ var app1 = new Vue({
                 },
                 responsive: true
             });
-            const url = 'https://api.dianmandirigrup.co.id/new_mobile/' + no;
+            const url = 'https://api.dianmandirigrup.co.id/new_prosess/' + no;
             fetch(url)
                 .then(res => res.json())
                 .then(data => {

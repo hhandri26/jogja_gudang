@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Breeze Admin</title>
+    <link rel="stylesheet" href="assets/tm/vendors/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="assets/tm/vendors/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="assets/tm/vendors/css/vendor.bundle.base.css" />
+    <link rel="stylesheet" href="assets/tm/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/tm/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="assets/tm/css/style.css" />
+    <link rel="shortcut icon" href="assets/tm/images/favicon.png" />
+    <link rel="stylesheet" href="plugin/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="plugin/DataTables/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" href="plugin/DataTables/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="plugin/vue-select/vue-select.css">
+</head>
+
+<body>
+    <div class="container-scroller">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+
+            <div id="navigation"></div>
+        </nav>
+        <div class="container-fluid page-body-wrapper">
+
+            <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row"
+                style="background-color: #fff !important;">
+                <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between"
+                    style="background-color: #fff !important;">
+
+                    <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button"
+                        data-toggle="minimize">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+
+
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                        data-toggle="offcanvas">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                </div>
+            </nav>
+            <div class="main-panel">
+                <div class="content-wrapper pb-0">
+
+                    <div class="row" id="app1">
+
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Form Stok Produk</h4>
+                                    <form class="forms-sample">
+                                        <div class="form-group">
+                                            <label for="exampleInputUsername1">Pilih Barang</label>
+                                            <v-select :options="product" label="product_name" value="id" v-model="header.product_id"></v-select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Jumlah</label>
+                                            <input type="number" class="form-control" v-model="header.qty" id="exampleInputEmail1"
+                                               />
+                                        </div>
+                                        <div class="form-group">
+                                            <a class="btn btn-info" v-on:click="addRowSub('details')">Tambah Detail</a>
+                                            <div v-for="(elm, index) in details">
+                                                <div class="container" style="border:1px solid;margin-bottom: 20px;margin-top: 10px;">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Nama Barang</label>
+                                                        <input type="text" class="form-control"  v-model="elm.kode_barang" id="exampleInputUsername1"
+                                                           />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Kode Barang</label>
+                                                        <input type="text" v-model="elm.harga_modal" class="form-control" id="exampleInputUsername1"
+                                                           />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Harga Jual</label>
+                                                        <input type="text" class="form-control" v-model="elm.harga_jual" id="exampleInputUsername1"
+                                                           />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Stok Sistem</label>
+                                                        <input type="text" class="form-control"  v-model="elm.jumlah" id="exampleInputUsername1"
+                                                           />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Stok Fisik</label>
+                                                        <input type="text" class="form-control" v-model="elm.pcs" id="exampleInputUsername1"
+                                                           />
+                                                    </div>
+                                                    
+                                                    <a v-on:click="doRemoveSub('details',index)" class="btn btn-danger "><i
+                                                        class="fa fa-remove"></i> Hapus</a>
+
+                                                </div>
+                                              
+
+                                            </div>
+                                            
+                                         
+
+                                        </div>
+
+                                        <a  class="btn btn-primary mr-2" v-on:click="save" > Simpan </a>
+                                     
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+
+                    </div>
+                </footer>
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="assets/tm/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/tm/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/tm/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.resize.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.categories.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.fillbetween.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.stack.js"></script>
+    <script src="assets/tm/vendors/flot/jquery.flot.pie.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/tm/js/off-canvas.js"></script>
+    <script src="assets/tm/js/hoverable-collapse.js"></script>
+    <script src="assets/tm/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="plugin/DataTables/datatables.min.js"></script>
+    <script src="plugin/DataTables/dataTables.rowReorder.min.js"></script>
+    <script src="plugin/DataTables/dataTables.responsive.min.js"></script>
+    <script src="assets/js/globalscript.js"></script>
+  
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="plugin/vue-select/vue-select.js"></script>
+    <script type="text/javascript" src="assets/js/variable.js"></script>
+
+    <script type="text/javascript" src="assets/js/axios.min.js"></script>
+    <script src="assets/js/product_stock.js"></script>
+    <script src="assets/js/vue-filter.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/logout.js"></script>
+    <script src="assets/js/printer.js"></script>
+    <!-- End custom js for this page -->
+</body>
+
+</html>

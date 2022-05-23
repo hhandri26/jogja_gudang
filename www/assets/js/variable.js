@@ -9,7 +9,7 @@ const optionAxios  = {
 
 const optionAxiosPublic  = {
 	baseURL: baseApi,
-	headers: {'Content-Type':'application/json'}
+	headers: {'Content-Type':'application/json','Access-Control-Allow-Origin' : '*'}
 }
 
 const optionAxiosUpload  = {
@@ -32,5 +32,7 @@ $(document).ready(function() {
 });
 
 var loading = $('#loading');
-
+if(typeof VueSelect !== 'undefined'){
+	Vue.component('v-select', VueSelect.VueSelect);
+}
 
