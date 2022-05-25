@@ -15473,7 +15473,7 @@ dl {
 
 .content-wrapper {
   background: #fff;
-  padding: 2.75rem 0rem;
+  padding: 2.75rem 0;
   width: 100%;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;

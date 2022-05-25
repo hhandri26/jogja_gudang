@@ -1,4 +1,4 @@
-#Mon May 23 05:36:10 ICT 2022
-base.0=D\:\\developer\\dianmandirigrup\\gudang\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Wed May 25 12:48:16 ICT 2022
+base.0=D\:\\developer\\dianmandirigrup\\jogja_gudang\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

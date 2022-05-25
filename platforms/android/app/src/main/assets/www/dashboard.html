@@ -18,123 +18,7 @@
 <body>
     <div class="container-scroller">
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
-
-            <ul class="nav">
-                <li class="nav-item nav-profile">
-                    <a href="dashboard.html" class="nav-link" >
-                        <div class="nav-profile-image" style="margin: auto;">
-                            <img src="img/logo.png" alt="profile" />
-                            <span class="login-status online"></span>
-                            <!--change to offline or busy as needed-->
-                        </div>
-
-
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard.html">
-                        <i class="mdi mdi-home menu-icon"></i>
-                        <span class="menu-title">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false"
-                        aria-controls="ui-basic">
-                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-                        <span class="menu-title">Transaksi</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="ui-basic1">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item">
-                                <a class="nav-link" href="transaksi_new.html">Transaksi Baru</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="transaksi_prosess.html">Transkasi Prosess</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="transaksi_packing.html">Transkasi Di Packing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="transaksi_send.html">Transkasi Dikirm</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false"
-                        aria-controls="ui-basic2">
-                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-                        <span class="menu-title">Barang</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="ui-basic2">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item">
-                                <a class="nav-link" href="product_category.html">Kategori Barang</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="product_master.html">Master barang</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="product_gallery.html">Galeri Barang</a>
-                            </li>
-                           
-
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false"
-                        aria-controls="ui-basic3">
-                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-                        <span class="menu-title">Gudang</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="ui-basic3">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item">
-                                <a class="nav-link" href="product_stock.html">Input Stok Barang</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="product_stock_adj.html">Penyesuaian Stok barang</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="product_report_stock.html">Report Stok Barang</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="kwitansi.html">Input Kwitansi</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="kwitansi_mix.html">Kelolah Mix Barang</a>
-                            </li>
-                           
-
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="setting_printer.html">
-                        <i class="mdi mdi-contacts menu-icon"></i>
-                        <span class="menu-title">Setting Printer </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="setting_printer.html">
-                        <i class="mdi mdi-contacts menu-icon"></i>
-                        <span class="menu-title">Kelola User </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"  onclick='logout()'>
-                        <i class="mdi mdi-contacts menu-icon"></i>
-                        <span class="menu-title">Log out </span>
-                    </a>
-                </li>
-
-
-            </ul>
+            <div id="navigation"> </div>            
         </nav>
         <div class="container-fluid page-body-wrapper">
 
@@ -162,7 +46,7 @@
                         <div class="col-xl-3 col-lg-12 stretch-card grid-margin">
                             <div class="row">
                             
-                                <div class="col-xl-12 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                                <div class="col-xl-12 col-md-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
                                     <div class="card bg-danger">
                                         <div class="card-body px-3 py-4">
                                             <div class="d-flex justify-content-between align-items-start">
@@ -178,7 +62,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-12 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
+                                <div class="col-xl-12 col-md-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3 pb-lg-0 pb-xl-3">
                                     <div class="card bg-primary">
                                         <div class="card-body px-3 py-4">
                                             <div class="d-flex justify-content-between align-items-start">
@@ -194,7 +78,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-12 col-md-6 stretch-card pb-sm-3 pb-lg-0">
+                                <div class="col-xl-12 col-md-12 stretch-card pb-sm-3 pb-lg-0">
                                     <div class="card bg-success">
                                         <div class="card-body px-3 py-4">
                                             <div class="d-flex justify-content-between align-items-start">
@@ -209,7 +93,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-12 col-md-6 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
+                                <div class="col-xl-12 col-md-12 stretch-card grid-margin grid-margin-sm-0 pb-sm-3">
                                     <div class="card bg-warning">
                                         <div class="card-body px-3 py-4">
                                             <div class="d-flex justify-content-between align-items-start">
@@ -268,6 +152,7 @@
     <script type="text/javascript" src="assets/js/vue.js"></script>
     <script type="text/javascript" src="assets/js/axios.min.js"></script>
     <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/navigation.js"></script>
     <script src="assets/js/logout.js"></script>
     <!-- End custom js for this page -->
 </body>
