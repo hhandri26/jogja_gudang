@@ -4,7 +4,8 @@ var app = new Vue({
         transaksi_new: 0,
         transaksi_prosess: 0,
         transaksi_packing: 0,
-        transaksi_send: 0
+        transaksi_send: 0,
+        transaksi_keep:0
     },
     created: function () {
 
@@ -51,6 +52,14 @@ var app = new Vue({
                 .catch(function (err) {
                     console.log(err);
                 });
+                axios.get('countkeep/' + 0, optionAxiosPublic).then(function (resp) {
+
+                    console.log( resp.data.values[0].qty)
+                    app.transaksi_keep = resp.data.values[0].qty;
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
 
         } else {
             axios.get('countnew/' + no, optionAxiosPublic).then(function (resp) {
@@ -84,6 +93,15 @@ var app = new Vue({
 
 
                 app.transaksi_send = resp.data.values[0].qty;
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+
+            axios.get('countkeep/' + no, optionAxiosPublic).then(function (resp) {
+
+
+                app.transaksi_keep = resp.data.values[0].qty;
             })
             .catch(function (err) {
                 console.log(err);

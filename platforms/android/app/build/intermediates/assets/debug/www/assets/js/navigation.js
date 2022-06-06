@@ -50,6 +50,9 @@ var navigation = new Vue({
                     <a class="nav-link" href="transaksi_packing.html">Transkasi Di Packing</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="transaksi_keep.html">Pengiriman Keep</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="transaksi_send.html">Transkasi Dikirm</a>
                 </li>
 
@@ -109,17 +112,18 @@ var navigation = new Vue({
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="setting_printer.html">
+        <a class="nav-link" href="report.html">
             <i class="mdi mdi-contacts menu-icon"></i>
-            <span class="menu-title">Setting Printer </span>
+            <span class="menu-title">Report Penjualan </span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="setting_printer.html">
             <i class="mdi mdi-contacts menu-icon"></i>
-            <span class="menu-title">Kelola User </span>
+            <span class="menu-title">Setting Printer </span>
         </a>
     </li>
+    
     <li class="nav-item">
         <a class="nav-link" href="#"  onclick='logout()'>
             <i class="mdi mdi-contacts menu-icon"></i>
@@ -163,6 +167,9 @@ var navigation = new Vue({
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="transaksi_packing.html">Transkasi Di Packing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="transaksi_keep.html">Pengiriman Keep</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="transaksi_send.html">Transkasi Dikirm</a>

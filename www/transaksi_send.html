@@ -89,6 +89,11 @@
                     
                                                     </tr>
                                                     <tr>
+                                                        <td style="font-size: 15px;width: 200px;">Kurir</td>
+                                                        <td style="font-size: 15px;width: 300px;">{{ header.courier  }} </td>
+                    
+                                                    </tr>
+                                                    <tr>
                                                         <td style="font-size: 15px;width: 200px;">Sub Total Belanja</td>
                                                         <td style="font-size: 15px;width: 300px;">Rp.
                                                             {{ (Number(header.total_all) + Number(header.amount_shipping)) | thousand }}
@@ -202,9 +207,10 @@
                                                 <tr>
                                                     <th>No Transaksi</th>
                                                     <th>Member</th>
+                                                    <th>Kurir</th>
                                                     <th>Tanggal Transaksi</th>
                                                     <th>Waktu</th>
-                                                    <th>Admin</th>
+                                                    <th>Admin</th>                                                  
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>

@@ -89,21 +89,37 @@ var app1 = new Vue({
             this.total_berat = 0;
             this.amount = 0;
             this.cetak = '';
+            this.header = {
+                no_resi: '',
+                province_name: '',
+                city_name: '',
+                district_name: '',
+                alamat_member: '',
+                total_all: '',
+                amount_shipping: '',
+                total_berat: '',
+                amount: '',
+                bukti_transfer: '',
+                status_bayar:'',
+                id:''
+                
+            };
             axios.get('transaction/header_detail/' + id, optionAxiosPublic)
                 .then(res => {
                  
-                    this.header.no_resi = res.data.values[0].no_resi;                   
-                    this.header.id = res.data.values[0].id;
-                    this.header.alamat_member = res.data.values[0].alamat_member;
-                    this.header.amount_shipping = res.data.values[0].amount_shipping;
-                    this.header.amount = res.data.values[0].amount;
-                    this.header.bukti_transfer = res.data.values[0].bukti_transfer;
+                    app1.header.no_resi = res.data.values[0].no_resi_pengiriman;                   
+                    app1.header.id = res.data.values[0].id;
+                    app1.header.alamat_member = res.data.values[0].alamat_member;
+                    app1.header.amount_shipping = res.data.values[0].amount_shipping;
+                    app1.header.amount = res.data.values[0].amount;
+                    app1.header.bukti_transfer = res.data.values[0].bukti_transfer;
+                    app1.header.courier = res.data.values[0].courier;
 
                     var district_id = {
                         district_id: res.data.values[0].district_id,
                     };
-
-                    axios.post('ongkir/district_name', {
+                    if( res.data.values[0].district_id){
+                        axios.post('ongkir/district_name', {
                             district_id
                         }, optionAxiosPublic)
                         .then(res3 => {
@@ -113,14 +129,41 @@ var app1 = new Vue({
                             app1.header.city_name = gg.city;
                             app1.header.district_name = gg.subdistrict_name;
 
+                            axios.get('transaction/detail/' + res.data.values[0].transaction_number, optionAxiosPublic)
+                            .then(res2 => {
+                                app1.details = res2.data.values;
+                                var count = 0;
+                                var count_berat = 0;
+                                if (res.data.values[0].courier == 'keep') {
+                                    app1.header.amount_shipping = 0;
+
+                                }
+                                app1.cetak += 'Tanggal :' + res.data.values[0].date + '\n' + 'Waktu :' + res.data.values[0].time + '\n' + 'Member :' + res.data.values[0].first_name + '\n' + 'Alamat :' + app1.header.province_name + ' ' + app1.header.city_name + ' ' + app1.header.district_name + ' ' + app1.header.alamat_member + '\n' + 'Admin :' + '\n' + res.data.values[0].username + '\n \n \n';
+
+                                Object.entries(res2.data.values).forEach(([key, val]) => {
+                                    count += val.sub_total;
+                                    count_berat += val.berat;
+                                    app1.cetak += val.product_nama + 'X' + val.qty + ' ' + app1.$options.filters.thousand(val.sub_total) + '\n';
+                                });
+
+                                app1.cetak += 'Sub Total :' + count + '\n' + 'Total Berat :' + count_berat + '\n \n \n \n \n \n \n';
+                                app1.header.total_all = Number(count);
+                                app1.header.total_berat = count_berat;
+
+
+
+                            }).catch(err => {
+                                console.log(err);
+                            });
+
 
 
                         }).catch(err => {
                             console.log(err);
                         });
 
-
-                    axios.get('transaction/detail/' + res.data.values[0].transaction_number, optionAxiosPublic)
+                    }else{
+                        axios.get('transaction/detail/' + res.data.values[0].transaction_number, optionAxiosPublic)
                         .then(res2 => {
                             app1.details = res2.data.values;
                             var count = 0;
@@ -146,6 +189,13 @@ var app1 = new Vue({
                         }).catch(err => {
                             console.log(err);
                         });
+
+                    }
+
+                    
+
+
+                    
 
 
                 }).catch(err => {
@@ -192,9 +242,10 @@ var app1 = new Vue({
                             this.dataTable.row.add([
                                 user.transaction_number,
                                 user.first_name,
+                                user.courier,
                                 user.date,
                                 user.time,
-                                user.username,
+                                user.username,                                
                                 '<button class="btn btn-info" data-toggle="modal" data-target="#tesModal" onclick="detail(' + user.id + ')"> Detail </button> <a href="#" onclick="hapus(' + user.transaction_number + ')" class="btn btn-danger"> Hapus </a>'
                             ]).draw(false)
                         })
@@ -204,9 +255,10 @@ var app1 = new Vue({
                             this.dataTable.row.add([
                                 user.transaction_number,
                                 user.first_name,
+                                user.courier,
                                 user.date,
                                 user.time,
-                                user.username,
+                                user.username,                              
                                 '<button class="btn btn-info" data-toggle="modal" data-target="#tesModal" onclick="detail(' + user.id + ')"> Detail </button>'
                             ]).draw(false)
                         })
@@ -240,6 +292,7 @@ var app1 = new Vue({
                                 user.date,
                                 user.time,
                                 user.username,
+                                user.courier,
                                 '<button class="btn btn-info" data-toggle="modal" data-target="#tesModal" onclick="detail(' + user.id + ')"> Detail </button> <a href="#" class="btn btn-danger" onclick="hapus(' + user.transaction_number + ')"> Hapus </a>'
                             ]).draw(false)
                         })
@@ -252,6 +305,7 @@ var app1 = new Vue({
                                 user.date,
                                 user.time,
                                 user.username,
+                                user.courier,
                                 '<button class="btn btn-info" data-toggle="modal" data-target="#tesModal" onclick="detail(' + user.id + ')"> Detail </button>'
                             ]).draw(false)
                         })
