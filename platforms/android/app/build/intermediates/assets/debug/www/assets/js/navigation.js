@@ -55,6 +55,9 @@ var navigation = new Vue({
                 <li class="nav-item">
                     <a class="nav-link" href="transaksi_send.html">Transkasi Dikirm</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="transaksi_edit.html">Edit Transkasi</a>
+                </li>
 
             </ul>
         </div>
@@ -173,6 +176,9 @@ var navigation = new Vue({
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="transaksi_send.html">Transkasi Dikirm</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="transaksi_edit.html">Edit Transkasi</a>
                 </li>
 
             </ul>

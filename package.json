@@ -25,9 +25,7 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "phonegap-plugin-barcodescanner": {
-        "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      },
+      "phonegap-plugin-barcodescanner": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-x-toast": {},
       "cordova-plugin-btprinter": {}
